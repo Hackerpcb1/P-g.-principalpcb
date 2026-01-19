@@ -251,12 +251,13 @@ body {
 /* ===== HERO ===== */
 .hero {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
-              url('images14.jpeg') center center / cover no-repeat;
+              url('images14.jpeg') center center no-repeat;
+  background-size: cover;
   background-attachment: fixed;
   padding: 5rem 0 6rem;
   position: relative;
   overflow: hidden;
-  min-height: 600px;
+  min-height: 650px;
 }
 
 .hero::before {
@@ -349,29 +350,38 @@ body {
   background: #ffffff;
   color: var(--primary);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
 }
 
 .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: #ffffff;
-  border-color: #ffffff;
-  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(29, 53, 87, 0.3);
 }
 
 .btn-secondary:hover {
-  background-color: #ffffff;
-  color: var(--primary);
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(29, 53, 87, 0.4);
 }
 
 .btn-small {
-  padding: 0.5rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(29, 53, 87, 0.2);
+}
+
+.btn-small:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(29, 53, 87, 0.3);
 }
 
 /* Chips / tags debajo del hero */
@@ -694,6 +704,10 @@ body {
 .service-card {
   position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
 }
 
 .service-icon {
@@ -710,29 +724,21 @@ body {
   animation: none;
 }
 
-.service-card::after {
-  content: '→';
-  position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  color: var(--primary-light);
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-}
-
-.service-card:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 .service-card .btn {
-  margin-top: 1rem;
+  margin-top: auto;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
 }
 
 .service-card h3 {
   margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card p {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 /* ===== Eventos ===== */
@@ -1140,6 +1146,13 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    padding: 4rem 0 5rem;
+    background-attachment: scroll;
+    background-position: center center;
+    min-height: 550px;
+  }
+
   .hero-text h1 {
     font-size: 2rem;
   }
@@ -1156,6 +1169,9 @@ body {
 @media (max-width: 480px) {
   .hero {
     padding: 3rem 0 4rem;
+    background-attachment: scroll;
+    background-position: center center;
+    min-height: 500px;
   }
 
   .hero-text h1 {
