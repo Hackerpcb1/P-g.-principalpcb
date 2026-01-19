@@ -10,12 +10,17 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo-area">
-        <div class="logo-mark">EV</div>
+        <img src="LOGO6.png" alt="Logo Escuela" class="logo-image">
         <div class="logo-text">
           <span class="logo-title">Escuela Superior Vocacional</span>
           <span class="logo-subtitle">Pablo Colón Berdecia</span>
         </div>
       </div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="main-nav">
         <ul>
           <li><a href="index.html#inicio">Inicio</a></li>
@@ -25,14 +30,20 @@
     </div>
   </header>
 
-  <section class="section">
+  <!-- Hero pequeño para página interna -->
+  <section class="hero" style="min-height: 300px; padding: 3rem 0;">
     <div class="container">
-      <div class="section-header">
-        <h2>Servicios al estudiante</h2>
-        <p>
+      <div class="section-header" style="margin-bottom: 0;">
+        <h1 style="color: #ffffff; font-size: 2.5rem; text-shadow: 0 2px 20px rgba(0,0,0,0.3);">Servicios al estudiante</h1>
+        <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem;">
           Información detallada sobre los servicios de apoyo disponibles para la población estudiantil.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
 
       <!-- Biblioteca -->
       <article id="biblioteca" class="card">
@@ -143,5 +154,66 @@
       <p>&copy; 2026 Escuela Superior Vocacional Pablo Colón Berdecia. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <script>
+    // Menu hamburguesa
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+      });
+    });
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+      }
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Animación de elementos al hacer scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observar tarjetas
+    document.querySelectorAll('.card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
