@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calendario de eventos escolares - Escuela Pablo Colón Berdecía">
+    <title>Calendario de Eventos | Escuela Pablo Colón Berdecía</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2>Pablo Colón Berdecía</h2>
+                <p class="nav__tagline">Excelencia Educativa</p>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="index.html#talleres" class="nav__link">Talleres</a></li>
+                    <li class="nav__item"><a href="index.html#sobre-nosotros" class="nav__link">Sobre Nosotros</a></li>
+                    <li class="nav__item"><a href="index.html#contacto" class="nav__link">Contacto</a></li>
+                    <li class="nav__item"><a href="calendario.html" class="nav__link active">Calendario</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link" id="login-btn">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Calendario Section -->
+    <section class="calendario" id="calendario">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Calendario de Eventos</h2>
+                <p class="section__subtitle">Mantente al día con todas las actividades escolares</p>
+            </div>
+
+            <div class="calendario__layout">
+                <!-- Calendar Main -->
+                <div class="calendario__main">
+                    <!-- Calendar Header -->
+                    <div class="calendario__header">
+                        <button class="calendario__nav-btn" id="prev-month">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="calendario__month-year" id="current-month-year">Agosto 2024</h3>
+                        <button class="calendario__nav-btn" id="next-month">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Calendar Grid -->
+                    <div class="calendario__grid">
+                        <div class="calendario__day-header">Dom</div>
+                        <div class="calendario__day-header">Lun</div>
+                        <div class="calendario__day-header">Mar</div>
+                        <div class="calendario__day-header">Mié</div>
+                        <div class="calendario__day-header">Jue</div>
+                        <div class="calendario__day-header">Vie</div>
+                        <div class="calendario__day-header">Sáb</div>
+                        <!-- Days will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Events Panel -->
+                <div class="calendario__panel" id="events-panel">
+                    <div class="calendario__panel-header">
+                        <h3>Eventos del Día</h3>
+                        <span class="calendario__panel-date" id="panel-date">Selecciona un día</span>
+                    </div>
+                    <div class="calendario__panel-content" id="panel-content">
+                        <div class="calendario__panel-empty">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <p>Haz clic en un día del calendario para ver los eventos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Details Modal -->
+            <div id="event-modal" class="event-modal">
+                <div class="event-modal__content">
+                    <span class="event-modal__close">&times;</span>
+                    <h3 id="event-title">Título del Evento</h3>
+                    <div class="event-modal__date">
+                        <span id="event-date">Fecha</span>
+                        <span id="event-time">Hora</span>
+                    </div>
+                    <p id="event-description">Descripción del evento...</p>
+                    <div class="event-modal__location">
+                        <strong>Ubicación:</strong> <span id="event-location">Lugar del evento</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>Escuela Pablo Colón Berdecía</h3>
+                    <p>Formando profesionales de excelencia desde hace años.</p>
+                </div>
+                <div class="footer__section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#talleres">Talleres</a></li>
+                        <li><a href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Talleres</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html#talleres">Computec</a></li>
+                        <li><a href="index.html#talleres">Enfermería</a></li>
+                        <li><a href="index.html#talleres">Cosmetología</a></li>
+                        <li><a href="index.html#talleres">Artes Culinarias</a></li>
+                        <li><a href="index.html#talleres">Mercadeo</a></li>
+                        <li><a href="index.html#talleres">Elaboración de Productos Agrícolas</a></li>
+                        <li><a href="index.html#talleres">Seguridad Pública</a></li>
+                        <li><a href="index.html#talleres">Curso General</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Escuela Pablo Colón Berdecía. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

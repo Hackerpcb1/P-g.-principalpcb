@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Completa – Escuela Superior Vocacional Pablo Colón Berdecia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Popup de selección de tema -->
+  <div id="themePopup" class="theme-popup">
+    <div class="theme-popup-content">
+      <h2>🎨 Selecciona tu tema preferido</h2>
+      <p>Elige cómo quieres ver el sitio web</p>
+      <div class="theme-buttons">
+        <button class="theme-btn theme-btn-light" id="btnLightMode">
+          ☀️ Modo Claro
+        </button>
+        <button class="theme-btn theme-btn-dark" id="btnDarkMode">
+          🌙 Modo Oscuro
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Script inline para modo claro/oscuro
+    (function() {
+      function hidePopup() {
+        document.getElementById('themePopup').classList.add('hidden');
+      }
+
+      function setLightMode() {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+        hidePopup();
+      }
+
+      function setDarkMode() {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        hidePopup();
+      }
+
+      function checkTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          hidePopup();
+        } else if (savedTheme === 'light') {
+          hidePopup();
+        }
+      }
+
+      // Ejecutar inmediatamente
+      checkTheme();
+
+      // Agregar event listeners cuando el DOM esté listo
+      document.addEventListener('DOMContentLoaded', function() {
+        const btnLight = document.getElementById('btnLightMode');
+        const btnDark = document.getElementById('btnDarkMode');
+
+        if (btnLight) {
+          btnLight.addEventListener('click', setLightMode);
+        }
+        if (btnDark) {
+          btnDark.addEventListener('click', setDarkMode);
+        }
+      });
+    })();
+  </script>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img src="LOGO6.png" alt="Logo Escuela" class="logo-image">
+        <div class="logo-text">
+          <span class="logo-title">Escuela Superior Vocacional</span>
+          <span class="logo-subtitle">Pablo Colón Berdecia</span>
+        </div>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="todos-los-servicios.html">Todos los servicios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 350px; padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 0;">
+        <div style="font-size: 5rem; margin-bottom: 1rem;">📚</div>
+        <h1 style="color: #ffffff; font-size: 3rem; text-shadow: 0 2px 20px rgba(0,0,0,0.5);">Centro de Recursos de la Biblioteca</h1>
+        <p style="color: rgba(255,255,255,0.95); font-size: 1.2rem; max-width: 800px; margin: 1rem auto;">
+          Acceso completo a todos los recursos, servicios y herramientas de nuestra biblioteca escolar
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
+  <section class="section">
+    <div class="container">
+      <!-- Servicios Principales -->
+      <div class="section-header">
+        <h2>📖 Servicios Principales</h2>
+        <p>Accede rápidamente a los servicios más utilizados de la biblioteca</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="pdfs/Opusculo biblioteca.pdf" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;" target="_blank" rel="noopener">
+          📚 Opúsculo de la Biblioteca
+        </a>
+        <a href="#prestamos" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📋 Préstamos y Devoluciones
+        </a>
+        <a href="#reservas" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🔖 Reservar Libros
+        </a>
+        <a href="#horarios" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🕐 Horarios de Servicio
+        </a>
+        <a href="#normas" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📜 Normas de Uso
+        </a>
+        <a href="#contacto-biblioteca" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📧 Contactar Bibliotecaria
+        </a>
+      </div>
+
+      <!-- Recursos Digitales -->
+      <div class="section-header">
+        <h2>💻 Recursos Digitales</h2>
+        <p>Acceso a plataformas y recursos en línea</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🌐 Biblioteca Virtual
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📱 E-Books
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🎧 Audiolibros
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📰 Revistas Digitales
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🔍 Bases de Datos
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📊 Recursos de Investigación
+        </a>
+      </div>
+
+      <!-- Colecciones Especiales -->
+      <div class="section-header">
+        <h2>⭐ Colecciones Especiales</h2>
+        <p>Explora nuestras colecciones temáticas</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          📖 Literatura Puertorriqueña
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          🔬 Ciencias y Tecnología
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          🎨 Arte y Cultura
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          📚 Referencia
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          🌍 Historia y Geografía
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          📝 Biografías
+        </a>
+      </div>
+
+      <!-- Servicios de Apoyo -->
+      <div class="section-header">
+        <h2>🎯 Servicios de Apoyo Académico</h2>
+        <p>Ayuda para tus proyectos y tareas</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📝 Ayuda con Investigaciones
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📄 Formato APA/MLA
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🔍 Búsqueda de Información
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ✍️ Tutorías de Lectura
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📊 Presentaciones y Proyectos
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          💡 Asesoría Bibliográfica
+        </a>
+      </div>
+
+      <!-- Espacios de la Biblioteca -->
+      <div class="section-header">
+        <h2>🏛️ Espacios Disponibles</h2>
+        <p>Conoce las diferentes áreas de nuestra biblioteca</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: var(--accent); color: #2c3e50;">
+          🤫 Área de Lectura Silenciosa
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: var(--accent); color: #2c3e50;">
+          👥 Sala de Estudio Grupal
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: var(--accent); color: #2c3e50;">
+          💻 Área de Computadoras
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: var(--accent); color: #2c3e50;">
+          📚 Estanterías Abiertas
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: var(--accent); color: #2c3e50;">
+          📖 Área de Referencia
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: var(--accent); color: #2c3e50;">
+          🎯 Mostrador de Servicio
+        </a>
+      </div>
+
+      <!-- Actividades y Eventos -->
+      <div class="section-header">
+        <h2>🎉 Actividades y Eventos</h2>
+        <p>Participa en nuestras actividades especiales</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📚 Club de Lectura
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ✍️ Talleres de Escritura
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🎭 Cuentacuentos
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📖 Feria del Libro
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🏆 Concursos Literarios
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🎨 Exposiciones
+        </a>
+      </div>
+
+      <!-- Herramientas y Recursos -->
+      <div class="section-header">
+        <h2>🔧 Herramientas y Recursos</h2>
+        <p>Utiliza nuestras herramientas de apoyo</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🖨️ Impresión y Fotocopias
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📱 WiFi Biblioteca
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          💾 Escaneo de Documentos
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🎧 Audífonos Disponibles
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📐 Material Escolar
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🔌 Estaciones de Carga
+        </a>
+      </div>
+
+      <!-- Información por Categoría -->
+      <div class="section-header">
+        <h2>📂 Categorías de Libros</h2>
+        <p>Explora por categoría</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📖 Ficción
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          📚 No Ficción
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🧒 Literatura Juvenil
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🔬 Ciencias
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🔢 Matemáticas
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🌍 Estudios Sociales
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🇬🇧 Inglés
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🇪🇸 Español
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          🎨 Arte y Música
+        </a>
+      </div>
+
+      <!-- Políticas y Reglamentos -->
+      <div class="section-header">
+        <h2>📋 Políticas y Reglamentos</h2>
+        <p>Información importante sobre el uso de la biblioteca</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          📜 Reglamento Completo
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          ⏰ Política de Préstamos
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          💰 Multas y Cargos
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          🔒 Código de Conducta
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          📱 Uso de Dispositivos
+        </a>
+        <a href="#" class="btn btn-primary" style="padding: 1.5rem; font-size: 1.1rem; background: #e74c3c;">
+          🍎 Política de Alimentos
+        </a>
+      </div>
+
+      <!-- Preguntas Frecuentes -->
+      <div class="section-header">
+        <h2>❓ Preguntas Frecuentes</h2>
+        <p>Respuestas a las dudas más comunes</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 3rem;">
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ❓ ¿Cómo me registro?
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ❓ ¿Cuántos libros puedo sacar?
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ❓ ¿Por cuánto tiempo?
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ❓ ¿Puedo renovar?
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ❓ ¿Qué pasa si pierdo un libro?
+        </a>
+        <a href="#" class="btn btn-secondary" style="padding: 1.5rem; font-size: 1.1rem;">
+          ❓ ¿Puedo sugerir libros?
+        </a>
+      </div>
+
+      <!-- Botón de regreso -->
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="biblioteca.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+          ← Volver a Biblioteca
+        </a>
+        <a href="index.html" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+          🏠 Volver al Inicio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Escuela Superior Vocacional Pablo Colón Berdecia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
